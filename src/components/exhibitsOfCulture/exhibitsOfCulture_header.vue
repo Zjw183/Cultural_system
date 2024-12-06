@@ -3,14 +3,21 @@
         <div class="show-video-head">
             <div class="header-box">
                 <div class="header-left">
-                    <!-- <img src="@/assets/苏区红文物展览系统.png" class="logo-title"/> -->
+                    <img src="@/assets/苏区红文物展览系统.png" class="logo-title"/>
                 </div>
+            
                 <div class="search-box">
-                    <input v-model="keyword" type="text" placeholder="请输入检索关键词..." class="search-input">
-                    <div @click="toSearch()"><button class="search-button">搜索</button>
-                    </div>
+                    <el-input
+                        v-model="keyword"
+                        type="text"
+                        placeholder="请输入检索关键词..."
+                        class="search-input"
+                        @input="handleInput()">
+                    </el-input>
+                    <el-button type="primary" icon="el-icon-search" @click="handleSearch()"></el-button>
                 </div>
-                <div v-if="!this.$store.state.User.username">
+                <!-- 原先的请求 -->
+                <!-- <div v-if="!this.$store.state.User.username">
                     <button class="login" @click="openLoginBox">
                         <span>登录</span>
                     </button>
@@ -23,7 +30,21 @@
                         <i class="el-icon-arrow-up" :class="{show :isShow}"></i>
                         <i class="el-icon-arrow-down" :class="{show :!isShow}"></i>
                     </div>
+                </div> -->
+                <div >
+                    <button class="login" @click="openLoginBox">
+                        <span>登录</span>
+                    </button>
                 </div>
+                <!-- <div class="user_name" @click="showUser">
+                    <div class="header-name">
+                        <div class="show-name">
+                        {{ this.$store.state.User.username }}
+                        </div>
+                        <i class="el-icon-arrow-up" :class="{show :isShow}"></i>
+                        <i class="el-icon-arrow-down" :class="{show :!isShow}"></i>
+                    </div>
+                </div> -->
             </div>
 
             <!-- <div id="user" :class="{ show: isShow }">
@@ -82,9 +103,9 @@
 </template>
 
 <script>
-//import { _ } from 'core-js';
+// import { _ } from 'core-js';
 import { mapActions } from 'vuex';
-
+import { ElInput, ElButton } from 'element-ui';
 export default {
     data() {
         return {
@@ -104,9 +125,11 @@ export default {
         }
     },
     components: {
+        ElInput,
+        ElButton
     },
     mounted() {
-        console.log(this.$store.state.User)
+        // console.log(this.$store.state.User)
 
         // 按窗口屏幕改变登录弹窗大小
         this.handleResize();
@@ -120,6 +143,14 @@ export default {
         window.removeEventListener('resize', this.handleResize);
     },
     methods: {
+        handleInput(value) {
+        // 当输入框内容变化时执行的逻辑（可选）
+        console.log('Input value:', value);
+        },
+        handleSearch() {
+        // 当点击搜索按钮时执行的逻辑
+        console.log('Searching for:', this.keyword);
+        },
         // 返回上一个页面
         back() {
             if(this.$route.path!='/')
@@ -274,7 +305,7 @@ export default {
 </script>
 
 <style scoped>
-/* @import './responsive_css/header.css'; */
+@import './responsive_css/header.css';
 
 /* common style 涉及宽度、高度、边距大小 写在响应式css */
 /* -------------------头部------------------------ */
@@ -284,6 +315,9 @@ export default {
     align-items: center;
     justify-content: start;
     background-color: rgb(24, 49, 69);
+    top:0;
+    height:120px;
+    position: absolute;
 }
 /* 头部 子盒子行排列 居中 靠左右均匀分布 */
 .header-box {
@@ -343,6 +377,7 @@ export default {
     border-radius: 10%;
     background-color: transparent;
     cursor: pointer;
+    margin-top:32px;
 }
 
 .login:hover {
@@ -436,5 +471,11 @@ export default {
 .logo-title {
     width: 130%;
     margin-left: 12%;
+}
+.search-box {
+  width: 35%;
+}
+.search-input {
+  width: 100%;
 }
 </style>

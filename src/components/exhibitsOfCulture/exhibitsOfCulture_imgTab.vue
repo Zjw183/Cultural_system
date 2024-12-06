@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="box"></div>
         <div class="image-container">
             <exhibits-of-cultural-relics-bar/>
             <img src="@/assets/文物展览.png" class="content-image"/>
@@ -46,7 +47,9 @@ export default{
 .image-container{
     position: relative;
 }
-
+.box{
+    height:110px;
+}
 .content-image{
     position: absolute;
     top: 0;
