@@ -18,15 +18,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-  {
-    path:'/ai',
-    name:'ai',
-    component:()=> import( '../views/AIassistant/ai.vue')
-  },
 ]
-
 const router = new VueRouter({
   routes
 })
-
-export default router
+export default new Router({
+  routes: [
+    {
+      path:'/ai',
+      component:()=> import( '../views/AIassistant/ai.vue')
+    },
+  ]
+})
