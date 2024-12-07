@@ -10,7 +10,7 @@
         @touchstart.prevent="(e) => { dragStart(e) }" @touchend.prevent="(e) => { dragEnd(e) }"
         @touchmove.prevent="(e) => dragMove(e)"
         @click="to_chatbro">
-        快点我！
+        <img class="imgzhushou" src="../../assets/zhushou.png" alt="">
     </div>
     </div>
 
@@ -37,10 +37,10 @@ export default{
         to_chatbro(){
             this.$router.push('/chatbro');
         },
-        dragStart(e) {
+        dragStart() {
             this.$refs.point.style.transition = "none";
         },
-        dragEnd(e) {
+        dragEnd() {
             this.$refs.point.style.transition = 'all 0.3s';
             if (this.moveLeft > this.clientWidth / 2) {//若移动位于屏幕的左边或右边，则自动贴合左边或右边（此根据业务具体需求表现而定）
                 this.moveLeft = this.clientWidth - this.divWidth - this.border_distance;
@@ -67,14 +67,16 @@ export default{
 </script>
 
 <style scoped>
+.imgzhushou {
+    width: 80%;
+    height: 80%;
+}
 .out {
     height: 100%;
     position: relative;
 }
 
 .point {
-    background-color: #ffb403;
-    border-radius: 50%;
     position: absolute;
 }
 </style>
