@@ -20,7 +20,7 @@ export default {
                     id: 0
                 },
                 {
-                    name: '革命遗址',
+                    name: '革命旧址',
                     id: 1
                 },
                 {

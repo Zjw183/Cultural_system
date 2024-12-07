@@ -71,25 +71,25 @@ export default{
         
         this.changedData = this.alldata.filter(item => item.author === i)
     },
-    async getData() {
-        await this.$axios.get(`/showResourceNew/showInfo?BigTheme=1&theme=1c&type=1&page=1&size=8`).then((res) => {
-            if (res.data.isok == true) {
-                // console.log(res.data.data);
-                this.alldata = res.data.data;
-                console.log(this.alldata);
-            }
-        })
-    }
+    // async getData() {
+    //     await this.$axios.get(`/showResourceNew/showInfo?BigTheme=1&theme=1c&type=1&page=1&size=8`).then((res) => {
+    //         if (res.data.isok == true) {
+    //             // console.log(res.data.data);
+    //             this.alldata = res.data.data;
+    //             console.log(this.alldata);
+    //         }
+    //     })
+    // }
   },
 } 
 
 </script>
 
 <style scoped>  
-/* @import "./responsive_css/center.css"; */
+@import "./responsive_css/center.css";
 .container1{
     width: 100%;
-    margin-left: 13%;
+    margin-left: 20%;
 }
 
 .demo1 {
@@ -103,8 +103,9 @@ export default{
 }
 
 .demo {
-    width: 6%;
-    height: 5%;
+    width: 8%;
+    aspect-ratio: 4 / 1;
+
     display: inline-block;
     text-align: center;
     padding: 5px 0;
@@ -117,14 +118,12 @@ export default{
 .center {
     position: relative;
     margin-top: 1%;
-    /* background-color: red; */
 }
 
 .container2 {
     width: 70%;
     height: 70vh;
     margin: auto;
-    /* background-color: blue; */
 }
 
 .relicsBox {

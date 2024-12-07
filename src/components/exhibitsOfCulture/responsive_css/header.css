@@ -1,0 +1,172 @@
+
+/* PC端页面样式 */
+@media only screen and (min-width: 768px) {
+    .show-video-head {
+        height: 100px;
+        min-width: 850px;
+    }
+    .header-left {
+        gap: 30px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content:flex-end;
+        margin-left: 50px;
+    }
+    .logo-title {
+        width: 240px;
+    }
+
+    .search-box {
+        /* 为输入框和按钮之间添加一些空间 */
+        gap: 10px;
+        width: 40%;
+        max-width: 600px;
+        min-width: 290px;
+    }
+
+    .search-input {
+        padding: 8px 15px;
+        width: 400px;
+        height: 40px;
+    }
+
+    .search-button {
+        width: 80px;
+        padding: 8px 15px;
+        height: 38px;
+    }
+
+    .login {
+        margin: 10px 50px 10px 30px;
+        width: 70px;
+        height: 40px;
+    }
+
+    .user_name {
+        width: 90px;
+        margin-right: 20px;
+    }
+    .header-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .show-name {
+        height: 48px;
+        line-height: 50px;
+    }
+    /* -------------------user展开------------*/
+    #user {
+        top: 99px;
+        /* 按user_name在head—box最右边定位 */
+        right: 1%;
+        width: 130px;
+        height: calc(40px * 3);
+    }
+    .under-name {
+        height: 40px;
+        line-height: 40px;
+    }
+    .limit {
+        height: calc(40px * 2);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    /* ------------------登录弹窗------------- */
+    .login-button {
+        height: 40px;
+    }
+}
+
+    /* --------------------屏幕大小 小于768 手机样式----------------- */
+@media only screen and (max-width:768px) {
+    .show-video-head {
+        width: 100%;
+        height: 50px;
+    }
+    .header-box {
+        gap: 0px;
+        margin: 0px 15px;
+        width: calc(100% - 30px);
+    }
+    /* 手机自带返回键 */
+    .backimg {
+        display: none;
+    }
+    .logo-title {
+        width: 150px;
+    }
+
+    .search-box {
+        gap: 8px;
+        width: 140px;
+        margin: 0px 8px;
+    }
+
+    .search-input {
+        padding: 8px 9.5px;
+        width: 140px;
+        height: 28px;
+        font-size: 14px !important;
+    }
+
+    .search-button {
+        display: none;
+        width: 50px;
+        height: 28px;
+        margin-right: 10px;
+    }
+
+    .login {
+        width: 45px;
+        height: 28px;
+    }
+    .user_name {
+        width: 70px;
+    }
+    .show-name{
+        font-size: 15px;
+    }
+/* ------------------------user展开---------------- */
+    #user {
+        right: 5px;
+        top: 50px;
+        height: calc(30px * 3);
+    }
+    .under-name{
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .limit {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    /* -----------------------登录弹窗-------- */
+    .rememberPwd {
+        line-height: 25px;
+        font-size: 15px;
+    }
+
+    .input_message {
+        width: 90%;
+        margin-top: 30px;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width:385px) {
+    /* 小屏幕 保证右边空间可以展示name */
+    .header-box {
+        margin-left: 5px;
+    }
+}

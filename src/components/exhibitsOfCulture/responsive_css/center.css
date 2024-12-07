@@ -1,0 +1,98 @@
+
+/* -------------PC样式-------------- */
+@media only screen and (min-width:768px) {
+    .center_content{
+      width: 72%;
+      min-width: 300px;
+    }
+    .center_image1,
+    .center_image2{
+        width: 14%;
+    }
+    .select {
+      width: 100%;
+    }
+
+    .select .select1 {
+      width: 50%; /* 为第一个选择器设置更大的宽度 */
+      margin: 10px 15px 10px 5%;/*   上 右 下 左边距 */
+    }
+    
+    .select .select2 {
+      width: 30%; /* 第二、三个选择器的宽度一致 */
+      margin: 10px 15px 10px 0px;
+    }
+    
+    .el-button{
+      height: 4.6vh;
+      margin: 10px 5% 10px 0px;
+      border-radius: 10px;
+    }
+    .sure-button {
+      margin-left: 10px!important;
+    }
+    .center_passage  {
+      width: 85%;/*  表格宽度占满容器 */
+      padding-top: 4vw;
+    }
+    .num {
+      font-size: 1.3cqw;
+    }
+  
+    .title {
+      font-size: 1.3cqw;
+    }
+  }
+  /* --------------默认手机样式--------- */
+  @media only screen and (max-width:768px) {
+    .container1 {
+      /* 容器最小高度，全屏 - 底部 - 头部 - 图片 */
+      min-height: calc(100vh - 12vw - 50px - 31.82vw);
+    }
+    .center_content{
+      margin-top: 60px;
+      width: 76%;
+    }
+  
+    .center_image1,
+    .center_image2{
+      margin-top: 60px;
+      width: 12%;
+    }
+    .select {
+      position:absolute;
+      padding: 0px 5px;
+      left: -15.79%;
+      top: -60px;
+      width: 131.5%;
+      height: 60px;
+      background-color: #f3f1ef;
+    }
+
+    .select .select1 {
+      width: 50%; /* 为第一个选择器设置更大的宽度 */
+      margin: 10px 5px 10px 2%;/*   上 右 下 左边距 */
+    }
+    
+    .select .select2 {
+      width: 40%; 
+      margin: 10px 5px 10px 0px;
+    }
+
+    .el-button{
+        padding: 0px;
+        width: 55px;
+        height: 35px;
+        margin: 10px 1% 10px 0px;
+    }
+  
+    .center_passage  {
+      width: 90%;
+      padding-top: 10px;
+    }
+    /* 固定切换页面在底部 */
+    .center_pagination {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
