@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div id="app">
     <!-- 聊天窗口 -->
@@ -105,6 +106,7 @@ export default {
   },
   methods: {
     markdownToHtml(markdown){
+        // eslint-disable-next-line no-undef
         return marked(markdown);
       },
      //播放音频
