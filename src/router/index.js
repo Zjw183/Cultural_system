@@ -32,9 +32,6 @@ const router = new VueRouter({
 })
 export default new Router({
   routes: [
-    {
-      path:'/ai',
-      component:()=> import( '../views/AIassistant/ai.vue')
-    },
+    
   ]
 })
