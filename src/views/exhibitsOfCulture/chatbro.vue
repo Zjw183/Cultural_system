@@ -18,8 +18,16 @@
          
         <div v-if ="message.type === 'text' " class="xiaohong_message-content" >
           <!-- <span v-html="markdownToHtml(message.content)"></span> -->
-          你好呀，我是你的文物探索小助手，很高兴认识你!你有什么关于苏区革命文物相关的问题，想要了解的吗?
+          你好呀，我是你的文物探索小助手，很高兴认识你!你有什么关于苏区革命文物相关的问题，想要了解的吗?    
         </div>
+
+        <div class="icon">
+          <image
+            src="../../assets/zhushou.png"
+            mode="scaleToFill"
+          />
+        </div>
+        
         <!-- <div v-if="message.type == 'audio'" class="xiaohong_message-content">  -->
            <!--  音频文件  -->
             <!-- <div :style="{'width': message.duration*2+80+'px','height':'20px'}" @click="playAudio(message.audioUrl,index)">
