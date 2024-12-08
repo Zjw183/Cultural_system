@@ -4,24 +4,25 @@
     <!-- 聊天窗口 -->
      <div class="xiaohong_back">
         <div class="xiaohong_licon"><i class="el-icon-d-arrow-left" @click="ret" style="color: #fff;"></i></div>
-        <div id="xiaohong_header1" class="xiaohong_header1 clearfix" style="font-size: 20px;">AI智能学助</div>
+        <div id="xiaohong_header1" class="xiaohong_header1 clearfix" style="font-size: 20px;">“苏区红”文物探索智能助手</div>
      </div>
     <div id="content_overflow" class="xiaohong_chat-window">
       <div class="messages_box">
         <div v-for="(message, index) in messages" :key="index"  :class="{ 'own-message': message.senderId === '学生' }" id="message">
         
-        <div :class="{ 'own-avatar': message.senderId === '学生' }" v-if="message.avatarUrl" class="xiaohong_avatar-container">
-          <!-- <img :src="message.avatarUrl" style="width: 40px; height: 40px; border-radius:50%" alt="Avatar">  -->
-          <span class="xiaohong" v-if="message.senderId==='苏小红' ">苏小红</span>
+        <div v-if="message.avatarUrl" class="xiaohong_avatar-container">
+          <img :src="message.avatarUrl" style="width: 40px; height: 40px; border-radius:50%" alt="Avatar"> 
+           
+          <span class="xiaohong" v-if="message.senderId==='苏小红' ">“苏区红”小助手</span>
         </div> 
          
         <div v-if ="message.type === 'text' " class="xiaohong_message-content" >
-          <!-- <span>{{ message.content }}</span> -->
-          <span v-html="markdownToHtml(message.content)"></span>
+          <!-- <span v-html="markdownToHtml(message.content)"></span> -->
+          你好呀，我是你的文物探索小助手，很高兴认识你!你有什么关于苏区革命文物相关的问题，想要了解的吗?
         </div>
-        <div v-if="message.type == 'audio'" class="xiaohong_message-content"> 
+        <!-- <div v-if="message.type == 'audio'" class="xiaohong_message-content">  -->
            <!--  音频文件  -->
-            <div :style="{'width': message.duration*2+80+'px','height':'20px'}" @click="playAudio(message.audioUrl,index)">
+            <!-- <div :style="{'width': message.duration*2+80+'px','height':'20px'}" @click="playAudio(message.audioUrl,index)">
                       <div class="wifi-warp ">
                           <div class="wifi-symbol">
                               <div class="wifi-circle first"></div>
@@ -30,9 +31,9 @@
                           </div>
                       </div>
                       <span style="font-size:14px;line-height:25px; white-space: nowrap"> {{message.audioUrl.duration==0?1:message.audioUrl.duration}} </span>
-                  </div>
-
-        </div> 
+                  </div> -->
+<!-- 
+        </div>  -->
       </div>
     </div>
   </div>
@@ -58,7 +59,7 @@
         </div>
   </div>
 
-  <div class="xiaohong_chat-window1" v-if="this.isshow">
+  <!-- <div class="xiaohong_chat-window1" v-if="this.isshow">
     <div class="content">{{  recordingStatus }}</div>
     <div class="music">
       <div class="item one"></div> 
@@ -69,7 +70,7 @@
       <div class="item six"></div> 
       <div class="item seven"></div>        
     </div>
-  </div> 
+  </div>  -->
 
 
 </div>
@@ -81,7 +82,7 @@ export default {
   data() {
     return {
       messages: [
-        {  id: 1, content: '同学你好呀，我是小红，很高兴为你服务，有关苏区红数字资源库欢迎随时向我提问噢', senderId: '苏小红', avatarUrl: require('../../assets/zhushou.png'),type:'text'},
+        {  id: 1, content: '你好呀，我是你的文物探索小助手，很高兴认识你!你有什么关于苏区革命文物相关的问题，想要了解的吗?', senderId: '苏小红', avatarUrl: require('../../assets/zhushou.png'),type:'text'},
         // { id: 2, content: '嗨!', senderId: 'ownId', avatarUrl: require('@/assets/img/th.jpg'),type:'text' },
       ],
       newMessage: '',
@@ -105,10 +106,10 @@ export default {
     };
   },
   methods: {
-    markdownToHtml(markdown){
-        // eslint-disable-next-line no-undef
-        return marked(markdown);
-      },
+    // markdownToHtml(markdown){
+    //     // eslint-disable-next-line no-undef
+    //     return marked(markdown);
+    //   },
      //播放音频
      playAudio(item,index) 
      {
@@ -472,11 +473,11 @@ margin-left: 8px;
   height: 50px;
   line-height: 50px;
   text-align: center;
-  color: rgb(247, 246, 246);
+  color: rgb(0, 0, 0);
   font-family: 'YaHei';
   font-size: 13px;
   font-weight: 800;
-  background-color: #d91414;
+  background-color: #D3D3D3;
  
 }
 #footer {
