@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 //import HomeView from '../views/HomeView.vue'
@@ -11,6 +12,14 @@ const routes = [
     component:exhibitsofCulture
   },
   {
+    path: '/chatbro',
+    name: 'chatbro',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */'../views/exhibitsOfCulture/chatbro.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -18,13 +27,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-  {
-    path:'/ai',
-    name:'ai',
-    component:()=> import( '../views/AIassistant/ai.vue')
-  },
 ]
-
 const router = new VueRouter({
   routes
 })
