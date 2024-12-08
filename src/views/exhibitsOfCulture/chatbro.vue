@@ -44,9 +44,16 @@
         </div>  -->
       </div>
     </div>
-  </div>
-       <!-- 消息输入框 -->
+    </div>
+
+  <!-- 消息输入框 -->
   <div class="bottom_input">
+       <!-- 视频点赞评论转发 -->
+    <div>
+      <img src="../../assets/dianzan.png" style="width: 2%;height:2%;margin-left: 10px;">
+      <img src="../../assets/pinglun.png" style="width: 2%;height:2%;margin-left: 30px;">
+      <img src="../../assets/zhuanfa.png" style="width: 2%;height:2%;margin-left: 30px;">
+    </div>
         <div class="xiaohong_input-area">
             <!-- <button class='btn-voice' :class="{ recording: isRecording }" @click="toggleRecording">
             <i class="el-icon-mic"></i>
