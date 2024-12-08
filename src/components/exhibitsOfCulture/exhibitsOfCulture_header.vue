@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="show-video-head">
+        <div class="show-video-head" :key="someReactiveData">
             <div class="header-box">
                 <div class="header-left">
                     <img src="@/assets/苏区红文物展览系统.png" class="logo-title"/>
@@ -105,8 +105,12 @@
 <script>
 // import { _ } from 'core-js';
 import { mapActions } from 'vuex';
-import { ElInput, ElButton } from 'element-ui';
+// import  Input from 'element-ui';
+// import  Button from 'element-ui';
+// import { ElButton, ElInput } from 'element'; 
+
 export default {
+    name:'exhibitsOfCulture_header',
     data() {
         return {
             captchaUrl: '',
@@ -124,9 +128,8 @@ export default {
             keyword:''
         }
     },
-    components: {
-        ElInput,
-        ElButton
+     components: {
+       
     },
     mounted() {
         // console.log(this.$store.state.User)

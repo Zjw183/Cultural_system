@@ -23,8 +23,68 @@ export default{
     data(){
         return {
             index:'',
-            alldata:[],
-            changedData:[],
+            alldata1:[
+            {id:0,
+                url:require('@/assets/wenwutupian/1.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:1,
+                url:require('@/assets/wenwutupian/2.jpg'),
+                title:'中国店员手艺工人工会临时中央委员会国家企业职工部印章'},
+                {id:2,
+                url:require('@/assets/wenwutupian/3.jpg'),
+                title:'《经济政策、暂行税则、借贷条例、投资条例、财政条例、统一财政训令》'},
+                {id:3,
+                url:require('@/assets/wenwutupian/4.jpg'),
+                title:'《全国苏维埃代表大会选举条例》'},
+                {id:4,
+                url:require('@/assets/wenwutupian/5.jpg'),
+                title:'中央政府办事处布告（第一号）'},
+                {id:5,
+                url:require('@/assets/wenwutupian/6.jpg'),
+                title:'《为开展查田运动》（布告）'},  
+            ],
+            alldata2:[
+            {id:0,
+                url:require('@/assets/wenwutupian/6.jpg'),
+                title:'《为开展查田运动》（布告）'},  
+            {id:1,
+                url:require('@/assets/wenwutupian/5.jpg'),
+                title:'中央政府办事处布告（第一号）'},
+                {id:2,
+                url:require('@/assets/wenwutupian/4.jpg'),
+                title:'《全国苏维埃代表大会选举条例》'},
+                {id:3,
+                url:require('@/assets/wenwutupian/3.jpg'),
+                title:'《经济政策、暂行税则、借贷条例、投资条例、财政条例、统一财政训令》'},
+                {id:4,
+                url:require('@/assets/wenwutupian/2.jpg'),
+                title:'中国店员手艺工人工会临时中央委员会国家企业职工部印章'},
+                {id:5,
+                url:require('@/assets/wenwutupian/1.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+               
+            ],
+            // 暂时先写几个数据
+            changedData:[
+            {id:0,
+                url:require('@/assets/wenwutupian/1.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:1,
+                url:require('@/assets/wenwutupian/2.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:2,
+                url:require('@/assets/wenwutupian/3.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:3,
+                url:require('@/assets/wenwutupian/4.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:4,
+                url:require('@/assets/wenwutupian/5.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},
+                {id:5,
+                url:require('@/assets/wenwutupian/6.jpg'),
+                title:'第一次全国苏维埃代表大会使用过的座钟'},  
+            ],
             menu: [
                 {
                     id: 0,
@@ -45,7 +105,7 @@ export default{
         }
     },
     mounted() {
-        this.getData();
+        //this.getData();
         this.change1(0);
     },
   watch: {
@@ -56,6 +116,12 @@ export default{
   },
   methods: {
     change1(i) {
+        if(i % 2 == 0){
+        this.changedData = this.alldata1
+        }
+        else{
+            this.changedData = this.alldata2
+        }
         this.index = i;
         let demo1 = 'demo1'; // 确保定义了demo变量，替换'your-class-name'为实际的类名
         let demo2 = 'demo2';
