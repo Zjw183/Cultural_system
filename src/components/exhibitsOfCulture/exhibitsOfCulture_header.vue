@@ -6,7 +6,7 @@
                     <img src="@/assets/苏区红文物展览系统.png" class="logo-title"/>
                 </div>
             
-                <div class="search-box">
+                <div class="search-box" @click="click()">
                     <el-input
                         v-model="keyword"
                         type="text"
@@ -146,6 +146,9 @@ export default {
         window.removeEventListener('resize', this.handleResize);
     },
     methods: {
+        click(){
+            
+        },
         handleInput(value) {
         // 当输入框内容变化时执行的逻辑（可选）
         console.log('Input value:', value);
