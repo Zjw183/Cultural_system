@@ -23,22 +23,23 @@
           <!-- 口述资料的内容 -->
         </div>
       </div>  
-      <div class="page">
-        <button @click="prevPage" :disabled="index === 0">上一页</button>
-        <span>页码：{{ index + 1 }} / {{ totalPages }}</span>
-        <button @click="nextPage" :disabled="index === totalPages - 1">下一页</button>
-        <div>
-          <button
+      <ul class="page">
+        <li @click="prevPage" :disabled="index === 0" class="yemaquan"><i class="el-icon-arrow-left"></i></li>
+        <!-- <span>页码：{{ index + 1 }} / {{ totalPages }}</span>  -->
+        <li class="yemaquan"
             v-for="page in totalPages"
             :key="page"
             @click="goToPage(page - 1)"
-            :class="{ active: index === page - 1 }"
+            :class="{ active: index === page - 1 }" 
           >
             {{ page }}
-          </button>
-        </div>
+          </li>
+        <li @click="nextPage" :disabled="index === totalPages - 1" class="yemaquan"><i class="el-icon-arrow-right"></i></li>
+        <!-- <div class="yema"> -->
+         
+        </ul>
       </div>
-    </div>
+    <!-- </div> -->
   </template>
   
   <script>
@@ -46,7 +47,7 @@
     data() {
       return {
         isarticle: false,
-        index: 0,
+        index:0,
         allData: [],
         itemsPerPage: 6,
         changedData: [],
@@ -62,6 +63,7 @@
       };
     },
     mounted() {
+      this.currentLevel = this.index;
       this.fetchData(this.currentLevel);
     },
     methods: {
@@ -170,7 +172,33 @@
     place-items: center;
     cursor: pointer;
   }
-  .active {
-    color: red;
+  .yemaquan.active {
+    background-color:  #ead88f;
+    color: white;
+  }
+  .page{
+    /* margin: 0px auto; */
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    list-style: none;
+    gap:30px;
+  }
+  .yema{
+    display: flex;
+  }
+  .yemaquan{
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 80% 80%;
+    border: 1px solid black;
+    background-color: #f8f8f8;
+    text-align: center;
+    line-height: 25px;
+  }
+  .yemaquan:hover{
+   background-color:  #ead88f;
+   color: white;
   }
   </style>
