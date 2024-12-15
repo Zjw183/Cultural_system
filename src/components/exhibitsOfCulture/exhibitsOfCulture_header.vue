@@ -113,6 +113,7 @@ export default {
     name:'exhibitsOfCulture_header',
     data() {
         return {
+            someReactiveData:'',
             captchaUrl: '',
             loginBoxVisible: false,
             userInfo: {

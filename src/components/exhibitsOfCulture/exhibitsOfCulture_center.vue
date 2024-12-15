@@ -65,26 +65,27 @@ export default{
                
             ],
             // 暂时先写几个数据
-            changedData:[
-            {id:0,
-                url:require('@/assets/wenwutupian/1.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},
-                {id:1,
-                url:require('@/assets/wenwutupian/2.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},
-                {id:2,
-                url:require('@/assets/wenwutupian/3.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},
-                {id:3,
-                url:require('@/assets/wenwutupian/4.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},
-                {id:4,
-                url:require('@/assets/wenwutupian/5.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},
-                {id:5,
-                url:require('@/assets/wenwutupian/6.jpg'),
-                title:'第一次全国苏维埃代表大会使用过的座钟'},  
-            ],
+            // changedData:[
+            // {id:0,
+            //     url:require('@/assets/wenwutupian/1.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},
+            //     {id:1,
+            //     url:require('@/assets/wenwutupian/2.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},
+            //     {id:2,
+            //     url:require('@/assets/wenwutupian/3.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},
+            //     {id:3,
+            //     url:require('@/assets/wenwutupian/4.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},
+            //     {id:4,
+            //     url:require('@/assets/wenwutupian/5.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},
+            //     {id:5,
+            //     url:require('@/assets/wenwutupian/6.jpg'),
+            //     title:'第一次全国苏维埃代表大会使用过的座钟'},  
+            // ],
+            changedData:'',
             menu: [
                 {
                     id: 0,
@@ -107,6 +108,19 @@ export default{
     mounted() {
         //this.getData();
         this.change1(0);
+        console.log('111');
+        
+        this.$axios.get(`/cr/getCrByLevel?level=0`)
+                .then(res => {
+                    this.changedData=res.data[0,5];
+                    console.log('111');
+                    console.log(res.data);
+            })
+            .catch(error => {
+                console.error('没请求到');
+                
+            });
+            
     },
   watch: {
     
@@ -116,12 +130,12 @@ export default{
   },
   methods: {
     change1(i) {
-        if(i % 2 == 0){
-        this.changedData = this.alldata1
-        }
-        else{
-            this.changedData = this.alldata2
-        }
+        // if(i % 2 == 0){
+        // this.changedData = this.alldata1
+        // }
+        // else{
+        //     this.changedData = this.alldata2
+        // }
         this.index = i;
         let demo1 = 'demo1'; // 确保定义了demo变量，替换'your-class-name'为实际的类名
         let demo2 = 'demo2';
@@ -133,9 +147,13 @@ export default{
         }
         arr[i].classList.remove(demo2);
         arr[i].classList.add(demo1);
-        console.log(this.alldata);
-        
-        this.changedData = this.alldata.filter(item => item.author === i)
+        // console.log(this.alldata);
+        // this.changedData = this.alldata.filter(item => item.author === i)
+
+        this.$axios.get(`/cr/getCrByLeel?level=${i}`)
+                .then(res => {
+                    this.changedData=res.data[0,5];
+            });
     },
     // async getData() {
     //     await this.$axios.get(`/showResourceNew/showInfo?BigTheme=1&theme=1c&type=1&page=1&size=8`).then((res) => {
