@@ -110,7 +110,7 @@ export default{
         this.change1(0);
         console.log('111');
         
-        this.$axios.get(`/cr/getCrByLevel?level=0`)
+        this.$axios.get(`cr/getCrByLevel?level=0`)
                 .then(res => {
                     this.changedData=res.data[0,5];
                     console.log('111');
@@ -150,7 +150,7 @@ export default{
         // console.log(this.alldata);
         // this.changedData = this.alldata.filter(item => item.author === i)
 
-        this.$axios.get(`/cr/getCrByLeel?level=${i}`)
+        this.$axios.get(`cr/getCrByLevel?level=${i}`)
                 .then(res => {
                     this.changedData=res.data[0,5];
             });
