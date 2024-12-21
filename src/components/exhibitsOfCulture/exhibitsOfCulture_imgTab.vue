@@ -91,7 +91,7 @@
   
   .indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

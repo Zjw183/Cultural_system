@@ -92,7 +92,7 @@
   
   .down {
     position: fixed;
-    bottom: 5%;
+    bottom:2%;
     left: 50%;
     transform: translateX(-50%);
     height: 20px;
