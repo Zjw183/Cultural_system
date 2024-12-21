@@ -1,7 +1,7 @@
 <template>
     <div>
       <headerBar />
-      <imgTab/>
+      <!-- <center-content></center-content> -->
       <!-- 悬浮图标 -->
       <!-- <div class="point" ref="point"
           :style="`width:${divWidth}px;height:${divHeight}px;left:${moveLeft}px;top:${moveTop}px;`"
@@ -9,21 +9,19 @@
           @touchmove.prevent="dragMove" @click="to_chatbro">
         <img class="imgzhushou" src="../../assets/zhushou.png" alt="">
       </div> -->
-      <div class="down" @click="scrollToNextSection">
-        <i class="el-icon-arrow-down"></i>
+      <div class="up" @click="goBack">
+        <i class="el-icon-arrow-up"></i>
       </div>
     </div>
   </template>
   
   <script>
-  import headerBar from '../../components/exhibitsOfCulture/exhibitsOfCulture_header_new.vue';
-  // import CenterContent from '../../components/exhibitsOfCulture/exhibitsOfCulture_center.vue';
-  import imgTab from '../../components/exhibitsOfCulture/exhibitsOfCulture_imgTab.vue';
+  import CenterContent from '../../components/exhibitsOfCulture/exhibitsOfCulture_center.vue';
+  import  headerBar from '../../components/exhibitsOfCulture/exhibitsOfCulture_header_new.vue';
   export default {
     components: {
-      headerBar,
-      imgTab
       // CenterContent,
+      headerBar
     },
     data() {
       return {
@@ -44,14 +42,9 @@
         this.$router.push('/chatbro');
       },
       handleScroll(event) {
-        if (event.deltaY > 0 && this.$route.path !== '/center_content') {
+        if (event.deltaY < 0) {
           // 向下滚动，跳转到下一个页面
-          this.$router.push('/center_content').catch(err => {
-
-          });
-        } else if (event.deltaY < 0) {
-          // 向上滚动，返回上一个页面
-          this.$router.go(-1);
+          this.$router.go(-1); // 替换为实际的下一个页面路径
         }
       },
       dragStart(e) {
@@ -67,10 +60,8 @@
           this.moveTop = touch.clientY - this.divHeight / 2;
         }
       },
-      scrollToNextSection() {
-        if (this.$route.path !== '/center_content') {
-          this.$router.push('/center_content').catch(err => {});
-        }
+      goBack() {
+        this.$router.go(-1);
       }
     }
   };
@@ -90,9 +81,9 @@
     z-index: 10000;
   }
   
-  .down {
+  .up {
     position: fixed;
-    bottom: 5%;
+    top:15%;
     left: 50%;
     transform: translateX(-50%);
     height: 20px;
@@ -101,10 +92,10 @@
     cursor: pointer;
   }
   
-  .down i {
+  .up i {
     font-weight: bold;
-    font-size: 25px;
-    color: rgb(80, 196, 231);
+      font-size: 25px;
+      color: rgb(80, 196, 231);
     display: inline-block;
     animation: bounce 1s infinite;
   }
