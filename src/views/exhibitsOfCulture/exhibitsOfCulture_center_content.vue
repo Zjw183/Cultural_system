@@ -12,16 +12,21 @@
       <div class="up" @click="goBack">
         <i class="el-icon-arrow-up"></i>
       </div>
+      <div @scroll="handleScroll">
+        <containerBar />
+      </div>
     </div>
   </template>
   
   <script>
   import CenterContent from '../../components/exhibitsOfCulture/exhibitsOfCulture_center.vue';
   import  headerBar from '../../components/exhibitsOfCulture/exhibitsOfCulture_header_new.vue';
+  import  containerBar from '../../components/exhibitsOfCultural_container.vue';
   export default {
     components: {
       // CenterContent,
-      headerBar
+      headerBar,
+      containerBar
     },
     data() {
       return {
@@ -90,16 +95,51 @@
     line-height: 20px;
     /* background-color: aqua; */
     cursor: pointer;
+    z-index: 1000;
   }
   
   .up i {
     font-weight: bold;
       font-size: 25px;
-      color: rgb(80, 196, 231);
+      color:  rgba(53, 119, 75, 0.651);
     display: inline-block;
     animation: bounce 1s infinite;
   }
   
+   
+  .container {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .scroll-item {
+    height: 100%;
+    transition: transform 0.3s ease-out;
+  }
+
+  .left{
+    position: relative;
+    padding: 40px 0 30px;
+    text-align: right;
+    float: left;
+  }
+  h3{
+    text-align: left;
+  }
+  li{
+    list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  .more{
+    text-align: right;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  .pic{
+    float: right;
+  }
+
   @keyframes bounce {
     0%, 100% {
       transform: translateY(0);

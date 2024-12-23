@@ -47,7 +47,6 @@
         if (event.deltaY > 0 && this.$route.path !== '/center_content') {
           // 向下滚动，跳转到下一个页面
           this.$router.push('/center_content').catch(err => {
-
           });
         } else if (event.deltaY < 0) {
           // 向上滚动，返回上一个页面
@@ -104,11 +103,11 @@
   .down i {
     font-weight: bold;
     font-size: 25px;
-    color: rgb(80, 196, 231);
+    color: rgba(53, 119, 75, 0.651);
     display: inline-block;
     animation: bounce 1s infinite;
   }
-  
+
   @keyframes bounce {
     0%, 100% {
       transform: translateY(0);
