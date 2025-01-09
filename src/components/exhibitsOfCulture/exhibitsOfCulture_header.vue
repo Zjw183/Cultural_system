@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="show-video-head" :key="someReactiveData">
+        
+        <!-- <div class="show-video-head" :key="someReactiveData">
             <div class="header-box">
                 <div class="header-left">
                     <img src="@/assets/苏区红文物展览系统.png" class="logo-title"/>
@@ -16,8 +17,8 @@
                     </el-input>
                     <el-button type="primary" icon="el-icon-search" @click="handleSearch()"></el-button>
                 </div>
-                <!-- 原先的请求 -->
-                <!-- <div v-if="!this.$store.state.User.username">
+                原先的请求
+                <div v-if="!this.$store.state.User.username">
                     <button class="login" @click="openLoginBox">
                         <span>登录</span>
                     </button>
@@ -30,13 +31,13 @@
                         <i class="el-icon-arrow-up" :class="{show :isShow}"></i>
                         <i class="el-icon-arrow-down" :class="{show :!isShow}"></i>
                     </div>
-                </div> -->
+                </div>
                 <div >
                     <button class="login" @click="openLoginBox">
                         <span>登录</span>
                     </button>
                 </div>
-                <!-- <div class="user_name" @click="showUser">
+                <div class="user_name" @click="showUser">
                     <div class="header-name">
                         <div class="show-name">
                         {{ this.$store.state.User.username }}
@@ -44,10 +45,10 @@
                         <i class="el-icon-arrow-up" :class="{show :isShow}"></i>
                         <i class="el-icon-arrow-down" :class="{show :!isShow}"></i>
                     </div>
-                </div> -->
+                </div>
             </div>
 
-            <!-- <div id="user" :class="{ show: isShow }">
+            <div id="user" :class="{ show: isShow }">
                 <div class="under-name">
                     <div>{{ this.$store.state.User.username }}</div>
                 </div>
@@ -63,8 +64,9 @@
                         <router-link to="">退出登录</router-link>
                     </div>
                 </div>
-            </div> -->
-        </div>
+            </div>
+        </div> -->
+        
 
         <!-- <el-dialog title="登录" 
             :visible.sync="loginBoxVisible" 
@@ -103,6 +105,7 @@
 </template>
 
 <script>
+
 // import { _ } from 'core-js';
 import { mapActions } from 'vuex';
 // import  Input from 'element-ui';
@@ -130,7 +133,7 @@ export default {
         }
     },
      components: {
-       
+    //    imgTab
     },
     mounted() {
         // console.log(this.$store.state.User)
@@ -306,7 +309,7 @@ export default {
             localStorage.removeItem('token'); // 清除token
             window.location.reload(); // 刷新页面
         }
-    }
+    },
 }
 
 </script>
@@ -326,25 +329,25 @@ export default {
     height:120px;
     position: absolute;
 }
-/* 头部 子盒子行排列 居中 靠左右均匀分布 */
+
 .header-box {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
 }
-/* 返回 图片 */
+
 .backimg{
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
-/* 搜索 */
+
 .search-box {
     display: flex;
     align-items: center;
 }
-/* 搜索框 */
+
 .search-input {
     color: rgb(0, 0, 0);
     font-size: 18px;
@@ -357,7 +360,7 @@ export default {
 .search-input:focus {
     border: 1px solid #4d6266;
 }
-/* 搜索按钮 */
+
 .search-button {
     background-color: #007bff;
     color: white;
@@ -375,7 +378,7 @@ export default {
     background-color: #0056b3;
 }
 
-/* 登录按钮 */
+
 .login {
     border: 1px solid #fff;
     box-shadow: 0 2px 0 0 rgba(125, 125, 125, 0.2);
@@ -390,7 +393,6 @@ export default {
 .login:hover {
     font-weight: bold;
 }
-/* 用户信息 */
 .user_name {
     text-align: center;
     color: #fff;
@@ -406,7 +408,7 @@ export default {
     overflow: hidden;         /* 隐藏超出部分 */
     text-overflow: ellipsis;  /* 超出部分显示省略号 */
 }
-/* ------------------------user展开---------------- */
+
 #user {
     position: absolute;
     z-index: 9;
@@ -419,14 +421,14 @@ export default {
 }
 
 
-/*-------------------------登录弹窗 --------------- */
+
  .el-dialog {
     border-radius: 14px;
     box-shadow: 0px 0px 3px 3px rgba(86, 96, 104, 0.5);
     background-color: #fff;
 }
 
-/* 确定登录按钮样式 */
+
 .login-button {
   margin-top: 20px;
   border-radius: 4px; 
@@ -434,7 +436,7 @@ export default {
   height: 4.3hw;
 }
 
-/* 鼠标悬浮在按钮上时的样式 */
+
 .login-button:hover {
     background-color: #409eff;
     border-color: #409eff;
@@ -450,7 +452,7 @@ export default {
 }
 /* 验证码 盒子 */
 .check_box {
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
     margin-top: 30px;
     padding-left: 5%;

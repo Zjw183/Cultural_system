@@ -12,6 +12,11 @@ const routes = [
     component:exhibitsofCulture
   },
   {
+    path: '/center_content',
+    name: 'center_content',
+    component: () => import('../views/exhibitsOfCulture/exhibitsOfCulture_center_content.vue')
+  },
+  {
     path: '/chatbro',
     name: 'chatbro',
     // route level code-splitting
