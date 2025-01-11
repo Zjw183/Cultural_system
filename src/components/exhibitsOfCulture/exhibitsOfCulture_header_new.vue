@@ -18,7 +18,7 @@
           <div 
             class="menu-item"
             :class="{ 'is-active': currentMenu === 1 }"
-            @click="handleSelect(1)"
+            @click="handleSelect(1)" 
           >
             展览中心
             <span class="underline" :class="{ 'is-active': currentMenu === 1 }"></span>
@@ -78,7 +78,11 @@
         if (this.isMenuActive) {
           this.toggleMenu(); // 如果菜单是展开状态，点击菜单项后关闭菜单
         }
-      }
+        if(index == 1){
+          this.$router.push('/exhibit_center');
+        }
+      },
+
     },
     components:{
         // imgTab

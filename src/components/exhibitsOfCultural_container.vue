@@ -4,7 +4,7 @@
         <div class="text">
           <h2 class="title">{{ item.title }}</h2>
           <p class="content">{{ item.content }}</p>
-          <img :src="item.image" alt="Page Image" width="170" height="300"/>
+          <img :src="item.image" alt="Page Image" width="170" height="300" />
         </div>
         <div class="button-container" @click.stop>
           <button @click="goToPage(0)" :class="{ active: currentIndex === 0 }">1</button>
