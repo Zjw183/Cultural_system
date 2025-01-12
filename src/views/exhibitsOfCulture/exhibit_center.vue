@@ -115,9 +115,9 @@ export default {
       </div>
     </div>
     <section class="carousel">
-      <span class="left" @click="prevSlide"></span>
-      <img :src="currentImage" alt="" @mouseenter="pauseCarousel" @mouseleave="startCarousel">
-      <span class="right" @click="nextSlide"></span>
+      <div class="left" @click="prevSlide"><i class="el-icon-arrow-left"></i></div>
+      <img :src="currentImage" alt="" @mouseenter="pauseCarousel" @mouseleave="startCarousel" height="300" width="1040">
+      <div class="right" @click="nextSlide"><i class="el-icon-arrow-right"></i></div>
       <div class="indicators">
         <span
           v-for="(indicators, index) in indicators"
@@ -126,6 +126,12 @@ export default {
           @click="goToSlide(index)"
         ></span>
       </div>
+    <div class="image-gallery">
+    <div class="image-item" v-for="(item, index) in imageItems" :key="index">
+      <img :src="item.image" :alt="item.title" class="gallery-image">
+      <div class="image-title">{{ item.title }}</div>
+    </div>
+  </div>
   </section>
   </div>
 </template>
@@ -144,6 +150,20 @@ export default {
       ],
       currentIndex: 0,
       interval: null,
+      imageItems: [
+        { image: require('@/assets/wenwutupian/红色文物/《党员训练大纲秘密须知》.png'), title: '《党员训练大纲秘密须知》' },
+        { image: require('@/assets/wenwutupian/红色文物/熬盐用的缸和硝盐.png'), title: '熬盐用的缸和硝盐' },
+        { image: require('@/assets/wenwutupian/红色文物/工人学校毕业证书.png'), title: '工人学校毕业证书' },
+        { image: require('@/assets/wenwutupian/红色文物/贺页朵使用过的眼镜、镜盒.png'), title: '贺页朵使用过的眼镜、镜盒' },
+        { image: require('@/assets/wenwutupian/红色文物/红军缴获的石印机.png'), title: '红军缴获的石印机' },
+        { image: require('@/assets/wenwutupian/红色文物/红军医务人员用的工具.png'), title: '红军医务人员用的工具' },
+        { image: require('@/assets/wenwutupian/红色文物/红军医务人员用的药书.png'), title: '红军医务人员用的药书' },
+        { image: require('@/assets/wenwutupian/红色文物/宁冈县天坪乡党支部装文件用过的藤篮.png'), title: '宁冈县天坪乡党支部装文件用过的藤篮' },
+        { image: require('@/assets/wenwutupian/红色文物/万安罗塘党支部入党志愿书.png'), title: '万安罗塘党支部入党志愿书' },
+        { image: require('@/assets/wenwutupian/红色文物/造币厂支架残片.png'), title: '造币厂支架残片' },
+        { image: require('@/assets/wenwutupian/红色文物/支部会议记录.png'), title: '支部会议记录' },
+        { image: require('@/assets/wenwutupian/红色文物/中共部县县委组织部长代表证.png'), title: '中共部县县委组织部长代表证' },
+      ]
     };
   },
   computed: {
@@ -200,15 +220,8 @@ export default {
 }
 section {
     position: relative;
-    height: 35%;
-    width: 50%;
-    border: 1px solid;
+    width: 70%;
     margin: 100px auto;
-}
-
-section.img {
-    height: 35%;
-    width: 50%;
 }
 
 p {
@@ -219,30 +232,28 @@ p {
 }
 
 i {
-    height: 15px;
-    width: 15px;
-    background-color: gray;
-    border-radius: 50%;
+    height: 25px;
+    width: 25px;
     display: inline-block;
     margin-right: 10px;
-}
-
-i:nth-child(1) {
+    border-radius:50%;
+    font-weight: bold;
+    font-size: 25px;
+    color:  rgba(53, 119, 75, 0.651);
     background-color: white;
+    display: inline-block;
+    animation: bounce 1s infinite;
 }
 
-i:nth-child(4) {
-    margin-right: 0;
-}
 
 .left,
 .right {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 50px;
-    font-weight: bolder;
-    position: absolute;
-    top: 50%;
-    font-weight: 500;
+  position: absolute;
+  top: 150px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .left {
@@ -253,5 +264,28 @@ i:nth-child(4) {
 .right {
     right: 0px;
     transform: translate(-15%, -50%);
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+ 
+.image-item {
+  flex: 0 0 calc(25% - 20px); /* 每张图片占据25%的宽度，减去间距 */
+  margin: 10px;
+  text-align: center;
+}
+ 
+.gallery-image {
+  width: 100%;
+  height: auto; 
+}
+ 
+.image-title {
+  margin-top: 5px; 
+  font-size: 14px; 
+  color: #333; 
 }
 </style>
