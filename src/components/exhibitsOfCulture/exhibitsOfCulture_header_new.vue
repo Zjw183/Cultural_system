@@ -6,7 +6,7 @@
       </div>
       <div class="header-tab">
         <!-- 使用 :class 绑定 active 类 -->
-        <div class="header-menu" :class="{ active: isMenuActive }">
+        <div class="header-menu" >
           <div 
             class="menu-item"
             :class="{ 'is-active': currentMenu === 0 }"
@@ -63,20 +63,27 @@
   <script>
   import imgTab from '../exhibitsOfCulture/exhibitsOfCulture_imgTab.vue'
   export default {
+    name:'exhibitsOfCultural_header_new',
     data() {
       return {
         isMenuActive: false, // 控制菜单显示状态
         currentMenu: 0, // 当前选中的菜单项索引
+        
       };
     },
+    props: ["active"],
     methods: {
       toggleMenu() {
         this.isMenuActive = !this.isMenuActive; // 切换菜单显示状态
       },
       handleSelect(index) {
-        this.currentMenu = index; // 更新当前选中的菜单项
+        // this.currentMenu = index; // 更新当前选中的菜单项
+        // console.log(this.currentMenu);
         if (this.isMenuActive) {
           this.toggleMenu(); // 如果菜单是展开状态，点击菜单项后关闭菜单
+        }
+        if(index == 0){
+          this.$router.push('/');
         }
         if(index == 1){
           this.$router.push('/exhibit_center');
@@ -86,6 +93,9 @@
     },
     components:{
         // imgTab
+    },
+    mounted(){
+      this.currentMenu = this.active;
     }
   };
   </script>

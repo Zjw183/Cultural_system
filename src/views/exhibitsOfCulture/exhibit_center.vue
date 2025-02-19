@@ -109,11 +109,13 @@ export default {
 
 <template>
   <div>
-    <div class="header">
+    <!--<div class="header">
       <div class="left-logo">
         <img src="@/assets/苏区红文物展览系统.png" style="width: 200px; height: 100px;">
       </div>
     </div>
+  -->
+    <headerBar :active="1" />
     <section class="carousel">
       <div class="left" @click="prevSlide"><i class="el-icon-arrow-left"></i></div>
       <img :src="currentImage" alt="" @mouseenter="pauseCarousel" @mouseleave="startCarousel" height="300" width="1040">
@@ -137,7 +139,12 @@ export default {
 </template>
 
 <script>
+import  headerBar from '../../components/exhibitsOfCulture/exhibitsOfCulture_header_new.vue';
 export default {
+  components: {
+      // CenterContent,
+      headerBar
+    },
   data() {
     return {
       images: [
@@ -203,25 +210,14 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background-color: rgba(53, 119, 75, 0.651);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000; 
-}
+
 .left-logo img {
   display: block; 
 }
 section {
     position: relative;
     width: 70%;
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
 p {

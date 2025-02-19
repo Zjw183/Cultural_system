@@ -1,6 +1,6 @@
 <template>
     <div>
-      <headerBar />
+      <headerBar :active="0" />
       <!-- <center-content></center-content> -->
       <!-- 悬浮图标 -->
       <!-- <div class="point" ref="point"
